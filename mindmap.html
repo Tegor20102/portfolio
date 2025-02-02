@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интеллект-карта - Портфолио</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .mindmap-container {
+            min-height: 100vh;
+            background: #e8f4f8;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mindmap {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .node {
+            background: white;
+            border: 2px solid #2196F3;
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0.5rem 0;
+        }
+
+        .sub-branch {
+            display: flex;
+            align-items: center;
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .sub-branch::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            width: 2rem;
+            height: 2px;
+            background: #2196F3;
+        }
+
+        .branch-title {
+            color: #2196F3;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .central-node {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            background: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #1976D2;
+        }
+
+        .branch-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .sub-branches {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .note {
+            color: #666;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Назад</a>
+    <div class="mindmap-container">
+        <div class="mindmap">
+            <div class="central-node">Павел</div>
+            <div class="branch-container">
+                <div class="branch">
+                    <div class="branch-title">Биография</div>
+                    <div class="sub-branches">
+                        <div class="sub-branch">
+                            <div class="node">Возраст</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">21 год</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-branch">
+                            <div class="node">Происхождение</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">Родился в Яранске</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-branch">
+                            <div class="node">Место жительства</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">Живет в Кирове</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branch">
+                    <div class="branch-title">Образование</div>
+                    <div class="sub-branches">
+                        <div class="sub-branch">
+                            <div class="node">Школа</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">Учился в 1 государственной школе</div>
+                                </div>
+                                <div class="sub-branch">
+                                    <div class="node">Закончил без троек</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-branch">
+                            <div class="node">Университет</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">Активно учится в университете</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branch">
+                    <div class="branch-title">Достижения</div>
+                    <div class="sub-branches">
+                        <div class="sub-branch">
+                            <div class="node">Олимпиады</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">Занимал первые места на олимпиадах</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-branch">
+                            <div class="node">Проекты</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">Защитил проект в 9 классе</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branch">
+                    <div class="branch-title">Интересы</div>
+                    <div class="sub-branches">
+                        <div class="sub-branch">
+                            <div class="node">Искусство</div>
+                            <div class="sub-branches">
+                                <div class="sub-branch">
+                                    <div class="node">С детства увлекается искусством</div>
+                                </div>
+                                <div class="sub-branch">
+                                    <div class="node">Любит рисовать</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> </html> 

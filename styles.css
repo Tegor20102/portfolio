@@ -38,16 +38,16 @@ nav {
 }
 
 .works-link {
-    color: #4CAF50;
+    color: #7986CB;
     font-weight: 600;
     padding: 0.5rem 1.5rem;
-    border: 2px solid #4CAF50;
+    border: 2px solid #7986CB;
     border-radius: 25px;
     transition: all 0.3s ease;
 }
 
 .works-link:hover {
-    background-color: #4CAF50;
+    background-color: #7986CB;
     color: white;
 }
 
@@ -59,15 +59,13 @@ nav a {
 }
 
 nav a:hover {
-    color: #4CAF50;
+    color: #7986CB;
 }
 
 .hero {
-    background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), 
-                url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(135deg, #E3F2FD, #FFCDD2, #F8BBD0);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -79,8 +77,8 @@ h1 {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 2rem;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    color: #455A64;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 .bio-content {
@@ -104,7 +102,7 @@ h1 {
 
 .bio-text {
     flex: 1;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -128,17 +126,15 @@ h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    color: #455A64;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
 /* Стили для раздела достижений */
 .achievements-section {
-    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(45deg, #E1BEE7, #B2EBF2);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
 }
 
 .achievements-container {
@@ -151,8 +147,7 @@ h2 {
 }
 
 .achievement-card {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.95);
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -188,18 +183,16 @@ h2 {
 
 .achievement-card li:before {
     content: "•";
-    color: #4CAF50;
+    color: #7986CB;
     position: absolute;
     left: 0;
 }
 
 /* Обновленные стили для раздела проектов */
 .project-section {
-    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                url('https://images.unsplash.com/photo-1566024287286-457247b70310?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(135deg, #C8E6C9, #B3E5FC, #DCEDC8);
+    background-size: 300% 300%;
+    animation: gradient 12s ease infinite;
 }
 
 .projects-container {
@@ -212,12 +205,11 @@ h2 {
 }
 
 .project-card {
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    border-left: 5px solid #4CAF50;
+    border-left: 5px solid #7986CB;
     overflow: hidden;
 }
 
@@ -243,7 +235,7 @@ h2 {
     display: block;
     width: 50px;
     height: 3px;
-    background: #4CAF50;
+    background: #7986CB;
     margin-top: 0.5rem;
 }
 
@@ -269,7 +261,7 @@ h2 {
 }
 
 .project-tags span:hover {
-    background: #4CAF50;
+    background: #7986CB;
     color: white;
 }
 
@@ -322,17 +314,15 @@ footer {
 
 .works-section {
     padding-top: 100px;
-    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                url('https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(45deg, #E0F7FA, #F3E5F5, #FFF3E0);
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
     min-height: 100vh;
 }
 
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 2rem auto;
@@ -368,7 +358,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     padding: 1.5rem;
     transform: translateY(100%);
     transition: transform 0.3s;
@@ -393,4 +383,136 @@ footer {
         grid-template-columns: 1fr;
         padding: 1rem;
     }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Добавляем стили для загрузки файлов */
+.upload-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.upload-form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-input-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-label {
+    display: block;
+    padding: 1rem 2rem;
+    background: #7986CB;
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-label:hover {
+    background: #5C6BC0;
+}
+
+.upload-button {
+    padding: 1rem 2rem;
+    background: #7986CB;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+    background: #5C6BC0;
+}
+
+/* Обновляем стили для карточек файлов */
+.work-item.file-card {
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 200px;
+}
+
+.work-item.image-card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.file-icon {
+    font-size: 4rem;
+    color: #7986CB;
+}
+
+/* Стили для разных типов файлов */
+.fa-file-pdf { color: #FF5722; }
+.fa-file-word { color: #2196F3; }
+.fa-file-excel { color: #4CAF50; }
+.fa-file-powerpoint { color: #FF5722; }
+.fa-file-zipper { color: #795548; }
+.fa-file-code { color: #607D8B; }
+.fa-file-video { color: #E91E63; }
+.fa-file-audio { color: #9C27B0; }
+.fa-image { color: #009688; }
+
+.work-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover .work-overlay {
+    transform: translateY(0);
+}
+
+.work-overlay h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    word-break: break-all;
+}
+
+.work-overlay p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
 } 

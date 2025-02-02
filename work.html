@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мои работы - Портфолио</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -24,21 +23,49 @@
     <main>
         <section class="works-section">
             <h1>Мои работы</h1>
-            
-            <!-- Форма загрузки -->
-            <div class="upload-section">
-                <form id="uploadForm" class="upload-form">
-                    <div class="file-input-container">
-                        <input type="file" id="fileInput" multiple class="file-input">
-                        <label for="fileInput" class="file-label">Выберите файлы</label>
+            <div class="works-grid">
+                <div class="work-item">
+                    <img src="work1.jpg" alt="Работа 1">
+                    <div class="work-overlay">
+                        <h3>Дизайн упаковки</h3>
+                        <p>Редизайн линейки косметических средств</p>
                     </div>
-                    <button type="submit" class="upload-button">Загрузить</button>
-                </form>
-            </div>
-
-            <!-- Галерея работ -->
-            <div class="works-grid" id="worksGrid">
-                <!-- Работы будут добавляться сюда динамически -->
+                </div>
+                <div class="work-item">
+                    <img src="work2.jpg" alt="Работа 2">
+                    <div class="work-overlay">
+                        <h3>Цифровая иллюстрация</h3>
+                        <p>Серия работ для журнала</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="work3.jpg" alt="Работа 3">
+                    <div class="work-overlay">
+                        <h3>Брендинг</h3>
+                        <p>Фирменный стиль для кафе</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="work4.jpg" alt="Работа 4">
+                    <div class="work-overlay">
+                        <h3>Веб-дизайн</h3>
+                        <p>Дизайн интернет-магазина</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="work5.jpg" alt="Работа 5">
+                    <div class="work-overlay">
+                        <h3>Плакаты</h3>
+                        <p>Серия социальных плакатов</p>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="work6.jpg" alt="Работа 6">
+                    <div class="work-overlay">
+                        <h3>Логотипы</h3>
+                        <p>Подборка лучших работ</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -46,108 +73,5 @@
     <footer>
         <p>&copy; 2024 Портфолио</p>
     </footer>
-
-    <script>
-        // Функция определения типа файла и возврата соответствующей иконки
-        function getFileIcon(fileName) {
-            const extension = fileName.split('.').pop().toLowerCase();
-            const iconMap = {
-                // Изображения
-                'jpg': 'fa-image',
-                'jpeg': 'fa-image',
-                'png': 'fa-image',
-                'gif': 'fa-image',
-                'svg': 'fa-image',
-                // Документы
-                'pdf': 'fa-file-pdf',
-                'doc': 'fa-file-word',
-                'docx': 'fa-file-word',
-                'txt': 'fa-file-lines',
-                // Таблицы
-                'xls': 'fa-file-excel',
-                'xlsx': 'fa-file-excel',
-                // Презентации
-                'ppt': 'fa-file-powerpoint',
-                'pptx': 'fa-file-powerpoint',
-                // Архивы
-                'zip': 'fa-file-zipper',
-                'rar': 'fa-file-zipper',
-                '7z': 'fa-file-zipper',
-                // Код
-                'html': 'fa-file-code',
-                'css': 'fa-file-code',
-                'js': 'fa-file-code',
-                'py': 'fa-file-code',
-                // Видео
-                'mp4': 'fa-file-video',
-                'avi': 'fa-file-video',
-                'mov': 'fa-file-video',
-                // Аудио
-                'mp3': 'fa-file-audio',
-                'wav': 'fa-file-audio',
-                'ogg': 'fa-file-audio'
-            };
-            return iconMap[extension] || 'fa-file';
-        }
-
-        // Функция форматирования размера файла
-        function formatFileSize(bytes) {
-            if (bytes === 0) return '0 Bytes';
-            const k = 1024;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-        }
-
-        // Функция для создания карточки работы
-        function createWorkCard(file) {
-            const workItem = document.createElement('div');
-            workItem.className = 'work-item file-card';
-            
-            const iconClass = getFileIcon(file.name);
-            const isImage = ['jpg', 'jpeg', 'png', 'gif'].includes(file.name.split('.').pop().toLowerCase());
-            
-            if (isImage) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    workItem.style.backgroundImage = `url(${e.target.result})`;
-                    workItem.classList.add('image-card');
-                };
-                reader.readAsDataURL(file);
-            } else {
-                const icon = document.createElement('i');
-                icon.className = `fas ${iconClass} file-icon`;
-                workItem.appendChild(icon);
-            }
-            
-            const overlay = document.createElement('div');
-            overlay.className = 'work-overlay';
-            
-            const title = document.createElement('h3');
-            title.textContent = file.name;
-            
-            const details = document.createElement('p');
-            details.innerHTML = `
-                Размер: ${formatFileSize(file.size)}<br>
-                Дата: ${new Date().toLocaleDateString()}
-            `;
-            
-            overlay.appendChild(title);
-            overlay.appendChild(details);
-            workItem.appendChild(overlay);
-            
-            document.getElementById('worksGrid').appendChild(workItem);
-        }
-
-        // Обработчик отправки формы
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const files = document.getElementById('fileInput').files;
-            for (let file of files) {
-                createWorkCard(file);
-            }
-            this.reset();
-        });
-    </script>
 </body>
 </html>

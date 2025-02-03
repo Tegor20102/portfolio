@@ -5,6 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мои работы - Портфолио</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .work-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-item.file {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .file-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .file-name {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            word-break: break-word;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .works-section {
+            padding-top: 100px;
+            background: linear-gradient(45deg, #E0F7FA, #F3E5F5, #FFF3E0);
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .download-button {
+            background: #7986CB;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .download-button:hover {
+            background: #5C6BC0;
+            transform: translateY(-2px);
+        }
+
+        .download-icon {
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,7 +98,7 @@
                 <li><a href="index.html#project">Мой проект</a></li>
             </ul>
             <ul class="nav-right">
-                <li><a href="index.html#biography" class="works-link">Биография</a></li>
+                <li><a href="index.html" class="works-link">На главную</a></li>
             </ul>
         </nav>
     </header>
@@ -23,49 +106,8 @@
     <main>
         <section class="works-section">
             <h1>Мои работы</h1>
-            <div class="works-grid">
-                <div class="work-item">
-                    <img src="work1.jpg" alt="Работа 1">
-                    <div class="work-overlay">
-                        <h3>Дизайн упаковки</h3>
-                        <p>Редизайн линейки косметических средств</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="work2.jpg" alt="Работа 2">
-                    <div class="work-overlay">
-                        <h3>Цифровая иллюстрация</h3>
-                        <p>Серия работ для журнала</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="work3.jpg" alt="Работа 3">
-                    <div class="work-overlay">
-                        <h3>Брендинг</h3>
-                        <p>Фирменный стиль для кафе</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="work4.jpg" alt="Работа 4">
-                    <div class="work-overlay">
-                        <h3>Веб-дизайн</h3>
-                        <p>Дизайн интернет-магазина</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="work5.jpg" alt="Работа 5">
-                    <div class="work-overlay">
-                        <h3>Плакаты</h3>
-                        <p>Серия социальных плакатов</p>
-                    </div>
-                </div>
-                <div class="work-item">
-                    <img src="work6.jpg" alt="Работа 6">
-                    <div class="work-overlay">
-                        <h3>Логотипы</h3>
-                        <p>Подборка лучших работ</p>
-                    </div>
-                </div>
+            <div class="works-grid" id="worksGrid">
+                <!-- Работы будут добавлены через JavaScript -->
             </div>
         </section>
     </main>
@@ -73,5 +115,89 @@
     <footer>
         <p>&copy; 2024 Портфолио</p>
     </footer>
+
+    <script>
+        // Функция для определения иконки файла
+        function getFileIcon(fileName) {
+            const ext = fileName.split('.').pop().toLowerCase();
+            const icons = {
+                // Изображения
+                'jpg': '🖼️',
+                'jpeg': '🖼️',
+                'png': '🖼️',
+                'gif': '🖼️',
+                'bmp': '🖼️',
+                // MS Office
+                'doc': '📝',
+                'docx': '📝',
+                'xls': '📊',
+                'xlsx': '📊',
+                'ppt': '📽️',
+                'pptx': '📽️',
+                'accdb': '📋',
+                'pub': '📰',
+                'one': '📓',
+                // Другие документы
+                'pdf': '📄',
+                'txt': '📝',
+                // Архивы
+                'zip': '📦',
+                'rar': '📦',
+                '7z': '📦',
+                // По умолчанию
+                'default': '📄'
+            };
+            return icons[ext] || icons['default'];
+        }
+
+        // Функция для создания карточки файла
+        function createFileCard(file) {
+            const workItem = document.createElement('div');
+            workItem.className = 'work-item file';
+
+            const icon = document.createElement('div');
+            icon.className = 'file-icon';
+            icon.textContent = getFileIcon(file.name);
+
+            const name = document.createElement('div');
+            name.className = 'file-name';
+            name.textContent = file.name;
+
+            const downloadButton = document.createElement('a');
+            downloadButton.href = `data/${file.name}`; // Путь к файлу
+            downloadButton.className = 'download-button';
+            downloadButton.download = file.name; // Атрибут для скачивания
+            downloadButton.innerHTML = '<span class="download-icon">⬇️</span> Скачать';
+
+            workItem.appendChild(icon);
+            workItem.appendChild(name);
+            workItem.appendChild(downloadButton);
+
+            return workItem;
+        }
+
+        // Функция для загрузки и отображения файлов из папки data
+        async function loadFiles() {
+            const worksGrid = document.getElementById('worksGrid');
+            
+            try {
+                // Получаем список файлов из папки data
+                const files = [
+                    { name: 'привет.txt' }
+                ];
+
+                // Создаем карточки для каждого файла
+                files.forEach(file => {
+                    const card = createFileCard(file);
+                    worksGrid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Ошибка при загрузке файлов:', error);
+            }
+        }
+
+        // Загружаем файлы при загрузке страницы
+        window.addEventListener('load', loadFiles);
+    </script>
 </body>
 </html>
